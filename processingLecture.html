@@ -16,6 +16,8 @@
 
 				Eel secondEel = new Eel();
 
+				Eel thirdEel = new Eel();
+
 				Starfish randomStarfish = new Starfish();
 
 				Starfish secondStarfish = new Starfish();
@@ -56,13 +58,25 @@
 
 					secondEel.moveEel();
 
+					thirdEel.moveEel();
+
 					randomStarfish.moveStarfish();
 
 					secondStarfish.moveStarfish();
+noStroke();
+fill(0,153,51);
+ellipse(440,490,10,80);
+ellipse(448,489,10,80);
+ellipse(456,490,9,80);
+ellipse(462,490,10,80);
+
+noStroke();
+fill(204,153,102);
+ellipse(424,530,65,50);
 
 
         }
-    
+
         class Fish
         {
         	//attributes
