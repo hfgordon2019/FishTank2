@@ -35,14 +35,16 @@
           size(WINDOW_WIDTH, WINDOW_HEIGHT);
 
           frameRate(REFRESH_RATE_PER_SECOND);//how often per second the draw function is called
-
+//
+					bg = loadImage("waterpic.jpg")
+//
         }
 
 
         //called repeatedly
         void draw() {
 
-          background(77,195,255);
+				background(bg);
 
 					noStroke();
 					fill(229,186,108);
@@ -63,18 +65,28 @@
 					randomStarfish.moveStarfish();
 
 					secondStarfish.moveStarfish();
-noStroke();
-fill(0,153,51);
-ellipse(440,490,10,80);
-ellipse(448,489,10,80);
-ellipse(456,490,9,80);
-ellipse(462,490,10,80);
 
-noStroke();
-fill(204,153,102);
-ellipse(424,530,65,50);
+					noStroke();
+					fill(0,153,51);
+					ellipse(440,490,10,80);
+					ellipse(448,489,10,80);
+					ellipse(456,490,9,80);
+					ellipse(462,490,10,80);
 
+					noStroke();
+					fill(204,153,102);
+					ellipse(424,530,65,50);
 
+					noStroke();
+					fill(204,153,102);
+					ellipse(55,505,65,40);
+					// dots on pink coral
+					noStroke();
+					fill(146, 153, 163);
+					ellipse(57,508,7,5);
+					noStroke();
+					fill(146, 153, 163);
+					ellipse(67,508,4,3);
         }
 
         class Fish
