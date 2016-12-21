@@ -22,6 +22,8 @@
 
 				Starfish secondStarfish = new Starfish();
 
+				Bubble randomBubble = new Bubble();
+
 
         int WINDOW_WIDTH = 600;
         int WINDOW_HEIGHT = 600;
@@ -65,6 +67,8 @@
 					randomStarfish.moveStarfish();
 
 					secondStarfish.moveStarfish();
+
+					randomBubble.moveBubble();
 
 					noStroke();
 					fill(0,153,51);
@@ -143,6 +147,38 @@
 						drawFish();
 					}
 				}
+
+				class Bubble
+			{
+				//attributes
+				var centerX, centerY, bodyHeight, bodyLength, bubbleColor;
+				//constructor
+
+				Bubble()
+				{
+				bodyHeight = random(10,20);
+				bodyLength = random(5,15);
+		  	bubbleColor = color(214,235,237);
+				centerX = (330);
+				centerY = (210);
+			}
+				void drawBubble()
+			{
+					fill(bubbleColor);
+					//body
+					ellipse(centerX,centerY,bodyLength,bodyHeight);
+				}
+			void update()
+				{
+					centerX ++;
+
+					}
+					void moveBubble()
+					{
+					update();
+						drawBubble();
+					}
+			}
 
 				class Eel
 				{
