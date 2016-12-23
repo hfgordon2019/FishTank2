@@ -139,12 +139,13 @@
 						if (centerX>640){
 							centerX = -40;
 						}
-					}
+				  }
 
 					void moveFish()
 					{
 						update();
 						drawFish();
+						//
 					}
 				}
 
@@ -164,19 +165,20 @@
 			}
 				void drawBubble()
 			{
-					fill(bubbleColor);
+				  noStroke();
+					fill(214,235,237);
 					//body
 					ellipse(centerX,centerY,bodyLength,bodyHeight);
 				}
 			void update()
 				{
-					centerX ++;
+					centerY --;
 
 					}
 					void moveBubble()
 					{
 					update();
-						drawBubble();
+					//
 					}
 			}
 
