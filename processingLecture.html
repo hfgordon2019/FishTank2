@@ -24,6 +24,8 @@
 
 				Bubble randomBubble = new Bubble();
 
+				Bubble secondBubble = new Bubble();
+
 
         int WINDOW_WIDTH = 600;
         int WINDOW_HEIGHT = 600;
@@ -69,6 +71,8 @@
 					secondStarfish.moveStarfish();
 
 					randomBubble.moveBubble();
+
+					secondBubble.moveBubble();
 
 					noStroke();
 					fill(0,153,51);
@@ -161,7 +165,7 @@
 				bodyLength = random(5,15);
 		  	bubbleColor = color(214,235,237);
 				centerX = (330);
-				centerY = (210);
+				centerY = random(200,225);
 			}
 				void drawBubble()
 			{
@@ -173,11 +177,14 @@
 			void update()
 				{
 					centerY --;
-
+					if (centerY<-25){
+						centerY = 300;
+					}
 					}
 					void moveBubble()
 					{
 					update();
+					drawBubble();
 					//
 					}
 			}
