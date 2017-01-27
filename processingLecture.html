@@ -177,13 +177,19 @@
         		bodyColor = color(random(0,360), random(0,360), random(0,360));
         		centerX = random(100, 400);
         		centerY = random(100, 400);
-						fishSpeed = 50/(bodyLength-10);
-
-
+						fishDirection = random(0,2);
+						if (fishDirection<1) {
+						  fishSpeed = -50/(bodyLength-10);
+            } else {
+							fishSpeed = 50/(bodyLength-10);
+						}
         	}
 
         	void drawFish()
-        	{
+
+					{if (fishSpeed<0) {
+
+            // going left
         		fill(bodyColor);
         		// body
         		ellipse(centerX, centerY, bodyLength, bodyHeight);
@@ -191,20 +197,45 @@
         		var tailWidth = bodyLength/4;
         		var tailHeight = bodyHeight/2;
 
-        		triangle(centerX-bodyLength/2, centerY,
-        		         centerX-bodyLength/2-tailWidth, centerY-tailHeight,
-        		         centerX-bodyLength/2-tailWidth, centerY+tailHeight);
+        		triangle(centerX+bodyLength/2, centerY,
+        		         centerX+bodyLength/2+tailWidth, centerY+tailHeight,
+        		         centerX+bodyLength/2+tailWidth, centerY-tailHeight);
         		// eye
         		fill(33, 33, 33);
-        		ellipse(centerX+bodyLength/4, centerY, bodyHeight/5, bodyHeight/5);
+        		ellipse(centerX-bodyLength/4, centerY, bodyHeight/5, bodyHeight/5);
 
-        	}
+					  } else {
+
+					  // going right
+						fill(bodyColor);
+						// body
+						ellipse(centerX, centerY, bodyLength, bodyHeight);
+						// tail
+						var tailWidth = bodyLength/4;
+						var tailHeight = bodyHeight/2;
+
+						triangle(centerX-bodyLength/2, centerY,
+						  			 centerX-bodyLength/2-tailWidth, centerY-tailHeight,
+					  	  		 centerX-bodyLength/2-tailWidth, centerY+tailHeight);
+						// eye
+						fill(33, 33, 33);
+						ellipse(centerX+bodyLength/4, centerY, bodyHeight/5, bodyHeight/5);
+
+						}
+
+					}
 
 					void update()
 					{
 						centerX += fishSpeed;
-						if (centerX>640){
-							centerX = -40;
+						//if (centerX>640){
+						//	centerX = -40;
+						//}
+						if (centerX>540){
+							fishSpeed = -fishSpeed;
+						}
+						if (centerX<60){
+							fishSpeed = -fishSpeed;
 						}
 				  }
 
@@ -256,6 +287,7 @@
 				{
 					//attributes
 					var centerX, centerY, bodyHeight, bodyLength, eelColor, eelSpeed;
+
 					//constructor
 					Eel(){
 					//	bodyHeight = random(20,30);
@@ -264,28 +296,56 @@
 						eelColor = color(random(0,360), random(0,360), random(0,360));
 						centerX = random(100, 400);
 						centerY = random(100, 400);
-						eelSpeed = bodyLength/50
+						//eelSpeed = -bodyLength/50;
+
+						eelDirection = random(0,2);
+						if (eelDirection<1) {
+						  eelSpeed = -bodyLength/50;
+            } else {
+						  eelSpeed = bodyLength/50;
+						}
 
 								//attributes on the left, parameters on the right
-							eelcolor = color(255,192,203)
+							eelcolor = color(255,192,203);
 					}
 
 					void drawEel()
 					{
-						fill(eelColor);
-						//body
-						ellipse(centerX, centerY, bodyLength, bodyHeight-45);
+						if (eelSpeed<0) {
 
-					//eye
-					fill(0);
-					ellipse(centerX + bodyLength/4, centerY, bodyHeight/8, bodyHeight/8);
+						  fill(eelColor);
+						  //body
+						  ellipse(centerX, centerY, bodyLength, bodyHeight-45);
+
+					    //eye
+					    fill(0);
+					    ellipse(centerX - bodyLength/4, centerY, bodyHeight/8, bodyHeight/8);
+
+					  } else {
+
+						  fill(eelColor);
+						  //body
+						  ellipse(centerX, centerY, bodyLength, bodyHeight-45);
+
+						  //eye
+						  fill(0);
+						  ellipse(centerX + bodyLength/4, centerY, bodyHeight/8, bodyHeight/8);
+
+					  }
+
 					}
 
 					void update()
 					{
 						centerX += eelSpeed;
-						if (centerX>640){
-							centerX = -40;
+						//if (centerX>640){
+						//	centerX = -40;
+						//}
+						if (centerX>540){
+							eelSpeed = -eelSpeed;
+						}
+						if (centerX<60){
+							eelSpeed = -eelSpeed;
 						}
 
 					}
@@ -321,7 +381,7 @@
 
 		starfishColor3 = color(random(0,360), random(0,360), random(0,360));
 
-		starfishSpeed = 1/8;
+    starfishSpeed = 1/8;
 
 	 }
 
