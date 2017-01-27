@@ -22,9 +22,9 @@
 
 				//Starfish secondStarfish = new Starfish();
 
-				//Bubble randomBubble = new Bubble();
+				Bubble randomBubble = new Bubble();
 
-				//Bubble secondBubble = new Bubble();
+				Bubble secondBubble = new Bubble();
 
 				ArrayList fishList;
 
@@ -108,9 +108,9 @@
 
 					//secondStarfish.moveStarfish();
 
-					//randomBubble.moveBubble();
+					randomBubble.moveBubble();
 
-					//secondBubble.moveBubble();
+				  secondBubble.moveBubble();
 
 					for (int j = fishList.size()-1; j >= 0; j--)
 
@@ -258,8 +258,8 @@
 				bodyHeight = random(10,20);
 				bodyLength = random(5,15);
 		  	bubbleColor = color(214,235,237);
-				centerX = random(250,330);
-				centerY = random(200,225);
+				centerX = random(20,580);
+				centerY = random(500,580);
 			}
 				void drawBubble()
 			{
@@ -272,7 +272,8 @@
 				{
 					centerY --;
 					if (centerY<-25){
-						centerY = 300;
+						centerX = random(20,580);
+						centerY = random(500,580);
 					}
 					}
 					void moveBubble()
